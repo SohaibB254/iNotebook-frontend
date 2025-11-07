@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');
+@import "tailwindcss";
+
+
+h1{
+  font-family: Outfit;
+}
+p,input {
+  font-family: Inter;
+}
+.spin-slow{
+  animation: spinSlow 2.5s linear infinite;
+}
+@keyframes spinSlow {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
