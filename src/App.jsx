@@ -9,6 +9,7 @@ import Login from './auth/Login';
 import SignUp from './auth/SignUp'
 import Footer from './components/Footer';
 import Toast from './components/Toast';
+import { WelcomeProvider } from './context/welcomContext.jsx';
 
 const App = () => {
   const [toast, setToast] = useState(null);
@@ -19,6 +20,7 @@ const App = () => {
 
   return (
 <>
+<WelcomeProvider>
     <NoteState>
         <BrowserRouter>
         <div className='min-h-screen flex-col flex '>
@@ -43,6 +45,7 @@ const App = () => {
            </div>
         </BrowserRouter>
       </NoteState>
+   </WelcomeProvider>
 </>
   )
 }

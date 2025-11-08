@@ -1,10 +1,16 @@
 import { Eye, EyeClosed, Lock, Mail, User } from 'lucide-react';
 import React, { useState }from 'react'
 import { Link,useNavigate } from 'react-router'
+import { useWMsg } from '../context/welcomContext';
+
 
 export default function SignUp(props) {
-    const [loading,setLoading] = useState(false)
+  const { setWMsg } = useWMsg()
+
+  const [loading,setLoading] = useState(false)
+
   const [showPass,setShowPass] = useState(false)
+
   const [credentials, setCredentials] = useState({name:'', email: '', password: '' });
   let navigate = useNavigate();
   const {name, email, password} = credentials;
@@ -27,6 +33,7 @@ export default function SignUp(props) {
       setLoading(false)
       navigate('/');
       props.showAlert('Account Created Successfully','success');
+      setWMsg('Welcome to Inotebook')
     }
     else {
       props.showAlert('Invalid Credentials','danger');
@@ -37,7 +44,7 @@ export default function SignUp(props) {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
   return (
-    <div className='flex flex-col items-center gap-4 px-4'>
+    <div className='flex flex-col items-center gap-4 px-4 mt-16'>
       <h2 className='text-green-500 text-2xl font-medium'>Create your free iNB account Now!</h2>
       <form className='flex flex-col border p-4 border-gray-300  rounded ' onSubmit={handleSubmit}>
   <div className="mb-3 flex flex-col gap-1">

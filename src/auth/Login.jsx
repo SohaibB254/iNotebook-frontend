@@ -1,8 +1,10 @@
 import { Eye, EyeClosed, Lock, Mail } from 'lucide-react';
 import React, { useState} from 'react';
 import  { useNavigate,Link} from 'react-router-dom';
+import { useWMsg } from '../context/welcomContext';
 
 export default function Login(props) {
+  const { setWMsg } = useWMsg()
   const [showPass,setShowPass] = useState(false)
   const [loading,setLoading] = useState(false)
 
@@ -23,8 +25,9 @@ export default function Login(props) {
     if(json.success){
       //redirect to account
       localStorage.setItem('Token', json.authToken);
-      navigate('/');
+      setWMsg('Welcome back')
       setLoading(false)
+      await navigate('/');
       props.showAlert('Logged in successfully','success');
     }
     else {
@@ -37,7 +40,7 @@ export default function Login(props) {
   };
 
   return (
-    <div className='flex flex-col items-center  '>
+    <div className='flex flex-col items-center mt-16  '>
       <h2 className='mb-4 text-green-500 font-medium text-xl'>Login to continue to iNoteBook</h2>
       <form className='border p-4 rounded  border-gray-300 flex flex-col gap-2' onSubmit={handleSubmit}>
         <div className="mb-3 flex flex-col gap-1">

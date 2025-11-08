@@ -4,8 +4,10 @@ import NoteItem from "./NoteItem";
 import AddNote from "./AddNote";
 import { useNavigate } from "react-router-dom";
 import { Loader, X } from "lucide-react";
+import { useWMsg } from "../context/welcomContext";
 
 export default function Notes(props) {
+  const { wMsg} = useWMsg()
   const context = useContext(contextValue);
   const { notes, getAllNotes, editNote, getUser } = context;
   const [loading,setLoading]= useState(false)
@@ -70,7 +72,7 @@ export default function Notes(props) {
       {/* Welcome Message */}
       {user && (
         <div className="sm:px-16 px-4  text-xl font-medium">
-          Welcome back, <span className="text-green-600">{user.name}</span> 👋
+          {wMsg}, <span className="text-green-600">{user.name}</span> 👋
         </div>
       )}
 

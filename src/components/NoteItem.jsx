@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import contextValue from "../context/notes/noteContext";
-import { Loader } from "lucide-react";
+import { Loader, SquarePen, Trash } from "lucide-react";
 
 
 export default function NoteItem(props) {
@@ -9,7 +9,7 @@ export default function NoteItem(props) {
   const context = useContext(contextValue);
   const { deleteNote } = context;
   return (
-    <div className="border border-gray-300 bg-green-50 relative shadow w-fit flex flex-col gap-2 p-4 mt-4 rounded overflow-hidden max-w-[200px] sm:max-w-[300px]">
+    <div className="border border-gray-300 bg-green-50 relative shadow w-fit flex flex-col gap-2 p-4 mt-4 rounded overflow-hidden max-w-[200px]  sm:max-w-[300px]">
       {
         del &&
         <div className="bg-white/30 backdrop-blur-[1px] w-full h-full flex flex-col justify-center items-center absolute right-0 top-0">
@@ -21,15 +21,15 @@ export default function NoteItem(props) {
           <p className="max-w-full">{note.description}</p>
           <p className="text-purple-800">#{note.tag}</p>
           {/* Note Btns */}
-          <div className="flex justify-end">
-          <abbr title="Edit note">
-            <button type="button"
+          <div className="  flex-1">
+          <abbr className=""  title="Edit note">
+            <button  type="button"
               className=" mx-1 bg-amber-300 p-1 px-2 rounded hover:bg-amber-500 transition cursor-pointer"
               onClick={() => {
                 updateNote(note);
               }}
             >
-              <i className="fa-solid fa-pen-to-square"></i>
+              <SquarePen size={20}/>
             </button>
           </abbr>
           <abbr title="Delete Note">
@@ -43,7 +43,7 @@ export default function NoteItem(props) {
                 props.showAlert('Note Deleted Successfully', 'danger')
               }}
             >
-              <i className="fa-solid fa-trash"></i>
+             <Trash size={20}/>
             </button>
           </abbr>
              </div>
