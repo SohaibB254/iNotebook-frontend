@@ -8,7 +8,7 @@ export default function About() {
         This is <span className="text-green-600">iNoteBook</span>
       </h1>
       <div className="flex  flex-col justify-between  gap-10 mt-8">
-        <p className="flex-1 text-gray-500 line-clamp-4 sm:line-clamp-none">
+        <p className="flex-1 text-gray-500 ">
           Note Maker is a modern and easy-to-use web application designed to
           help users organize their thoughts, ideas, and daily tasks in one
           secure place. Built using <span className="text-blue-600 font-semibold">React</span> for the frontend, <span className="text-green-600 font-semibold">Node.js</span> and <span className="text-yellow-600 font-semibold">Express </span>
