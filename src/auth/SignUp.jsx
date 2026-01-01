@@ -26,7 +26,6 @@ export default function SignUp(props) {
     });
 
     const json = await response.json();
-    console.log(json);
     if(json.success){
       //redirect to account
       localStorage.setItem('Token', json.authToken);

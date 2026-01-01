@@ -85,7 +85,7 @@ export default function Notes(props) {
 
         {/* Notes container */}
         <div className="flex gap-4 flex-wrap">
-          { notes.map((note) => (
+          {notes.map((note) => (
             <NoteItem
               key={note._id}
               showAlert={props.showAlert}
